@@ -13,8 +13,8 @@ import hotel.entities.ServiceCharge;
 import hotel.utils.IOUtils;
 
 public class CheckoutCTL {
-
-	private enum State {ROOM, ACCEPT, CREDIT, CANCELLED, COMPLETED };
+	//changed to public for testing
+	public enum State {ROOM, ACCEPT, CREDIT, CANCELLED, COMPLETED };
 	
 	private Hotel hotel;
 	private State state;
@@ -33,6 +33,11 @@ public class CheckoutCTL {
 		IOUtils.trace("BookingCTL: run");
 		state = State.ROOM;
 		checkoutUI.run();
+	}
+
+
+	public void setState(State state){
+		this.state = state;
 	}
 
 	
